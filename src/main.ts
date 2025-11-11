@@ -27,3 +27,25 @@ export const calculator: Calculator = {
     return x / y;
   },
 };
+
+class ArrayAnalysis {
+  average: number;
+  min: number;
+  max: number;
+  length: number;
+  constructor(data: number[]) {
+    this.length = data.length;
+    this.average = Math.floor(
+      data.reduce((acc, crr) => acc + crr) / this.length
+    );
+    this.min = data.reduce((acc, crr) => (acc = acc < crr ? acc : crr));
+    this.max = data.reduce((acc, crr) => (acc = acc > crr ? acc : crr));
+  }
+}
+
+export function obj(input: number[]) {
+  const newObj = new ArrayAnalysis(input);
+  return newObj;
+}
+
+// console.log(obj([2, 5, 33, 55, 69, 2]));

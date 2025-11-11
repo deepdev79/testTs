@@ -1,5 +1,5 @@
 import { describe, test, it, expect } from "vitest";
-import { capitalize, reverseString, calculator } from "../src/main";
+import { capitalize, reverseString, calculator, obj } from "../src/main";
 
 describe("capitalize", () => {
   it("should capitalize and return first letter of any string", () => {
@@ -25,5 +25,16 @@ describe("calculator", () => {
   });
   it("divides 2 numbers if divide method is called", () => {
     expect(calculator.divide(18, 3)).toBe(6);
+  });
+});
+
+describe("obj", () => {
+  it("creates and returns object", () => {
+    const newObj = obj([2, 5, 33, 55, 69, 2]);
+    expect(typeof newObj).toBe("object");
+    expect(newObj).toHaveProperty("average", 27);
+    expect(newObj).toHaveProperty("min", 2);
+    expect(newObj).toHaveProperty("max", 69);
+    expect(newObj).toHaveProperty("length", 6);
   });
 });
