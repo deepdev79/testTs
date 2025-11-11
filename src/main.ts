@@ -43,9 +43,23 @@ class ArrayAnalysis {
   }
 }
 
-export function obj(input: number[]) {
+export function analyzeArray(input: number[]) {
   const newObj = new ArrayAnalysis(input);
   return newObj;
 }
 
-// console.log(obj([2, 5, 33, 55, 69, 2]));
+export function caesarCipher(str: string, shift: number): string {
+  let result: string[] = [];
+  let k: number;
+  for (let i = 0; i < str.length; i++) {
+    const c = str.charCodeAt(i);
+    if (c >= 65 && c <= 90) {
+      k = ((c - 65 + shift) % 26) + 65;
+      result.push(String.fromCharCode(k));
+    } else if (c >= 97 && c <= 122) {
+      k = ((c - 97 + shift) % 26) + 97;
+      result.push(String.fromCharCode(k));
+    } else result.push(str[i]);
+  }
+  return result.join("");
+}

@@ -1,5 +1,11 @@
 import { describe, test, it, expect } from "vitest";
-import { capitalize, reverseString, calculator, obj } from "../src/main";
+import {
+  capitalize,
+  reverseString,
+  calculator,
+  analyzeArray,
+  caesarCipher,
+} from "../src/main";
 
 describe("capitalize", () => {
   it("should capitalize and return first letter of any string", () => {
@@ -28,13 +34,19 @@ describe("calculator", () => {
   });
 });
 
-describe("obj", () => {
+describe("analyzeArray", () => {
   it("creates and returns object", () => {
-    const newObj = obj([2, 5, 33, 55, 69, 2]);
+    const newObj = analyzeArray([2, 5, 33, 55, 69, 2]);
     expect(typeof newObj).toBe("object");
     expect(newObj).toHaveProperty("average", 27);
     expect(newObj).toHaveProperty("min", 2);
     expect(newObj).toHaveProperty("max", 69);
     expect(newObj).toHaveProperty("length", 6);
+  });
+});
+
+describe("caesarCipher", () => {
+  it("creates and returns new encrypted string", () => {
+    expect(caesarCipher("HeLlo", 3)).toBe("KhOor");
   });
 });
